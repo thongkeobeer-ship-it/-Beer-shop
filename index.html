@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -290,6 +290,7 @@
         <div class="detail-gallery">
           <div class="gallery-main" id="galleryMain">
             <img id="galleryMainImg" alt="Account preview" loading="eager">
+            <img id="galleryMainImgNext" class="gm-right" alt="Account preview" loading="eager">
             <span class="gallery-counter" id="galleryCounter">01 / 20</span>
             <button class="gallery-nav prev" id="galleryPrev" aria-label="Previous image">‹</button>
             <button class="gallery-nav next" id="galleryNext" aria-label="Next image">›</button>
@@ -361,18 +362,18 @@
      (used by game-selection.js for icons), product-stack.js defines
      `products` (legacy featured-products modal), flow-data.js defines
      the GAMES / accounts data layer used by every flow-* system below. -->
-<script src="category-system.js"></script>
-<script src="product-stack.js"></script>
-<script src="navbar-reveal.js"></script>
+<script src="js/category-system.js"></script>
+<script src="js/product-stack.js"></script>
+<script src="js/navbar-reveal.js"></script>
 
-<script src="flow-data.js"></script>
-<script src="flow-shell.js"></script>
-<script src="game-selection.js"></script>
-<script src="account-marketplace.js"></script>
-<script src="account-detail.js"></script>
-<script src="gallery.js"></script>
-<script src="image-viewer.js"></script>
-<script src="purchase.js"></script>
+<script src="js/flow-data.js"></script>
+<script src="js/flow-shell.js"></script>
+<script src="js/game-selection.js"></script>
+<script src="js/account-marketplace.js"></script>
+<script src="js/account-detail.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/image-viewer.js"></script>
+<script src="js/purchase.js"></script>
 
 </body>
 </html>
