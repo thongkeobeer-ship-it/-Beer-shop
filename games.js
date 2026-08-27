@@ -16,7 +16,7 @@ function renderGameGrid(query){
   const q = (query || '').trim().toLowerCase();
   const list = GAMES.filter(g => ids.includes(g.id) && (!q || g.name.toLowerCase().includes(q)));
   if (!list.length){
-    gameGrid.innerHTML = '<div class="flow-empty">No games match your search.</div>';
+    gameGrid.innerHTML = '<div class="flow-empty">ບໍ່ພົບເກມທີ່ຄົ້ນຫາ.</div>';
     return;
   }
   gameGrid.innerHTML = list.map((g, i) => {
@@ -28,8 +28,8 @@ function renderGameGrid(query){
         <span class="game-card-sweep"></span>
         <div class="game-card-overlay">
           <div class="game-card-name">${g.name}</div>
-          <div class="game-card-count">${count} Accounts Available</div>
-          <span class="game-card-explore">EXPLORE →</span>
+          <div class="game-card-count">ມີ ${count} ບັນຊີ</div>
+          <span class="game-card-explore">ສຳຫຼວດ →</span>
         </div>
       </a>`;
   }).join('');

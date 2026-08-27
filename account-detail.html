@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lo">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Account Detail — NIMBUS</title>
+<title>ລາຍລະອຽດບັນຊີ — BEER SHOP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@400;500;600;700&family=Noto+Sans+Lao:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,10 +19,10 @@
   <section class="flow-step" id="stepDetail" data-step="detail">
     <header class="flow-header">
       <div class="flow-header-left">
-        <a class="flow-back" id="detailBackBtn" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="15" height="15"><path d="M15 6l-6 6 6 6"/></svg> Accounts</a>
+        <a class="flow-back" id="detailBackBtn" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="15" height="15"><path d="M15 6l-6 6 6 6"/></svg> ບັນຊີ</a>
       </div>
       <div class="flow-header-right">
-        <a class="flow-icon-btn" href="index.html" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+        <a class="flow-icon-btn" href="index.html" aria-label="ໜ້າຫຼັກ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
       </div>
     </header>
     <div class="flow-body">
@@ -32,27 +32,27 @@
             <img id="galleryMainImg" alt="Account preview" loading="eager">
             <img id="galleryMainImgNext" class="gm-right" alt="Account preview" loading="eager">
             <span class="gallery-counter" id="galleryCounter">01 / 20</span>
-            <button class="gallery-nav prev" id="galleryPrev" aria-label="Previous image">‹</button>
-            <button class="gallery-nav next" id="galleryNext" aria-label="Next image">›</button>
+            <button class="gallery-nav prev" id="galleryPrev" aria-label="ຮູບກ່ອນໜ້າ">‹</button>
+            <button class="gallery-nav next" id="galleryNext" aria-label="ຮູບຖັດໄປ">›</button>
           </div>
           <div class="gallery-thumbs" id="galleryThumbs"></div>
         </div>
         <div class="detail-info">
-          <span class="detail-badge" id="detailBadge">PREMIUM</span>
-          <h2 class="detail-title" id="detailTitle">Account #001</h2>
+          <span class="detail-badge" id="detailBadge">ພຣີເມຍມ</span>
+          <h2 class="detail-title" id="detailTitle">ບັນຊີ #001</h2>
           <span class="detail-game" id="detailGame">Mobile Legends</span>
           <div class="detail-stats" id="detailStats"></div>
           <div class="detail-price-row">
             <div class="detail-price" id="detailPrice">850,000 ₭</div>
-            <span class="detail-stock in" id="detailStock">IN STOCK</span>
+            <span class="detail-stock in" id="detailStock">ມີສິນຄ້າ</span>
           </div>
-          <button class="detail-buy" id="detailBuyBtn">BUY ACCOUNT</button>
+          <button class="detail-buy" id="detailBuyBtn">ຊື້ບັນຊີ</button>
           <div class="detail-tabs">
             <div class="detail-tab-nav" id="detailTabNav">
-              <button class="tab-btn active" data-tab="info">Account Information</button>
-              <button class="tab-btn" data-tab="desc">Description</button>
-              <button class="tab-btn" data-tab="details">Details</button>
-              <button class="tab-btn" data-tab="safety">Safety Information</button>
+              <button class="tab-btn active" data-tab="info">ຂໍ້ມູນບັນຊີ</button>
+              <button class="tab-btn" data-tab="desc">ລາຍລະອຽດ</button>
+              <button class="tab-btn" data-tab="details">ລາຍລະອຽດເພີ່ມ</button>
+              <button class="tab-btn" data-tab="safety">ຂໍ້ມູນຄວາມປອດໄພ</button>
             </div>
             <div id="detailTabPanels"></div>
           </div>
@@ -66,26 +66,26 @@
 <div class="image-viewer" id="imageViewer" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="viewer-top">
     <span class="viewer-counter" id="viewerCounter">01 / 20</span>
-    <button class="viewer-close" id="viewerClose">× Close</button>
+    <button class="viewer-close" id="viewerClose">× ປິດ</button>
   </div>
-  <button class="viewer-nav prev" id="viewerPrev" aria-label="Previous image">‹</button>
+  <button class="viewer-nav prev" id="viewerPrev" aria-label="ຮູບກ່ອນໜ້າ">‹</button>
   <div class="viewer-stage" id="viewerStage">
     <img id="viewerImg" alt="Account image" draggable="false">
   </div>
-  <button class="viewer-nav next" id="viewerNext" aria-label="Next image">›</button>
+  <button class="viewer-nav next" id="viewerNext" aria-label="ຮູບຖັດໄປ">›</button>
 </div>
 
 <!-- PURCHASE CONFIRMATION -->
 <div class="purchase-confirm" id="purchaseConfirm" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="pc-backdrop" id="pcBackdrop"></div>
   <div class="pc-panel">
-    <h3>Are you sure you want to purchase this account?</h3>
-    <div class="pc-row"><span>Account</span><b id="pcAccount">—</b></div>
-    <div class="pc-row"><span>Price</span><b id="pcPrice">—</b></div>
-    <div class="pc-row"><span>Stock</span><b id="pcStock">—</b></div>
+    <h3>ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຊື້ບັນຊີນີ້?</h3>
+    <div class="pc-row"><span>ບັນຊີ</span><b id="pcAccount">—</b></div>
+    <div class="pc-row"><span>ລາຄາ</span><b id="pcPrice">—</b></div>
+    <div class="pc-row"><span>ສະຕັອກ</span><b id="pcStock">—</b></div>
     <div class="pc-actions">
-      <button class="pc-btn pc-cancel" id="pcCancel">Cancel</button>
-      <button class="pc-btn pc-confirm" id="pcConfirm">Confirm Purchase</button>
+      <button class="pc-btn pc-cancel" id="pcCancel">ຍົກເລີກ</button>
+      <button class="pc-btn pc-confirm" id="pcConfirm">ຢືນຢັນການຊື້</button>
     </div>
   </div>
 </div>
@@ -93,7 +93,7 @@
 <!-- PURCHASE TOAST -->
 <div class="flow-toast" id="flowToast">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
-  <span id="flowToastText">Purchase successful!</span>
+  <span id="flowToastText">ຊື້ສຳເລັດແລ້ວ!</span>
 </div>
 
 <script src="flow-data.js"></script>

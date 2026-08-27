@@ -26,10 +26,10 @@ const CATEGORY_GAMES = {
   best:  ['mlbb','freefire','genshin','pubgm'],
 };
 const CATEGORY_META = {
-  games:{ title:'GAME COLLECTION',       subtitle:'Choose a game to explore available accounts', accent:'#7CC9FF', icon:'<rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 12h.01M6 15h2m6-3h.01M17 12h.01"/>' },
-  gift:  { title:'GIFT-READY GAMES',      subtitle:'Choose a game to explore gift-ready accounts', accent:'#B18CFF', icon:'<rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/>' },
-  topup: { title:'TOP-UP READY GAMES',    subtitle:'Choose a game to explore top-up ready accounts', accent:'#FFB25C', icon:'<path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/>' },
-  best:  { title:'BEST SELLER GAMES',     subtitle:"Choose a game from this week's trending picks", accent:'#FFC24B', icon:'<path d="M12 2c1.5 3 1 4.5-1 6.5C9 10.5 8 12 8 14a4 4 0 0 0 8 0c0-1.2-.5-2-1.2-2.8.9.4 2.2 1.6 2.2 3.8a5 5 0 0 1-10 0c0-3.5 2-5 3-8 .5-1.2.7-2.2 1-5Z"/>' },
+  games:{ title:'ລວມເກມ',       subtitle:'ເລືອກເກມເພື່ອເບິ່ງບັນຊີທີ່ມີໃຫ້ບໍລິການ', accent:'#7CC9FF', icon:'<rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 12h.01M6 15h2m6-3h.01M17 12h.01"/>' },
+  gift:  { title:'ເກມທີ່ມີບັດຂອງຂວັນ',      subtitle:'ເລືອກເກມເພື່ອເບິ່ງບັນຊີພ້ອມບັດຂອງຂວັນ', accent:'#B18CFF', icon:'<rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/>' },
+  topup: { title:'ເກມທີ່ເຕີມເງິນໄດ້',    subtitle:'ເລືອກເກມເພື່ອເບິ່ງບັນຊີທີ່ພ້ອມເຕີມເງິນ', accent:'#FFB25C', icon:'<path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/>' },
+  best:  { title:'ເກມຂາຍດີສຸດ',     subtitle:"ເລືອກເກມຈາກລາຍການທີ່ກຳລັງມາແຮງອາທິດນີ້", accent:'#FFC24B', icon:'<path d="M12 2c1.5 3 1 4.5-1 6.5C9 10.5 8 12 8 14a4 4 0 0 0 8 0c0-1.2-.5-2-1.2-2.8.9.4 2.2 1.6 2.2 3.8a5 5 0 0 1-10 0c0-3.5 2-5 3-8 .5-1.2.7-2.2 1-5Z"/>' },
 };
 
 function iconSVG(pathData){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${pathData}</svg>`; }
@@ -56,19 +56,19 @@ function generateImages(accent, count){
 }
 
 const ACCOUNTS_CACHE = {};
-const ACC_DESC_TH = (gameName) =>
-  `ไอดี ${gameName} พรีเมียม เลเวลสูง ปลดล็อกไอเทมหายากมากมาย ผ่านการตรวจสอบครบถ้วนก่อนลงขายทุกครั้ง พร้อมโอนให้ผู้ซื้อใช้งานได้ทันทีหลังชำระเงินเสร็จสมบูรณ์.`;
-const ACC_SAFETY_TH = [
-  'เปลี่ยนอีเมลและรหัสผ่านได้ทันทีหลังซื้อ',
-  'ตรวจสอบข้อมูลไอดีให้ครบก่อนโอนเงินทุกครั้ง',
-  'มีการรับประกันหลังการขาย 7 วัน หากไอดีมีปัญหาจากผู้ขาย',
+const ACC_DESC_LO = (gameName) =>
+  `ໄອດີ ${gameName} ພຣີເມຍມ ເລເວວສູງ ປົດລັອກໄອເທມຫາຍາກຫຼາຍລາຍການ ຜ່ານການກວດສອບຢ່າງລະອຽດກ່ອນລົງຂາຍທຸກຄັ້ງ ພ້ອມໂອນໃຫ້ຜູ້ຊື້ນຳໃຊ້ໄດ້ທັນທີຫຼັງຈາກຊຳລະເງິນສຳເລັດ.`;
+const ACC_SAFETY_LO = [
+  'ປ່ຽນອີເມວ ແລະລະຫັດຜ່ານໄດ້ທັນທີຫຼັງຈາກຊື້',
+  'ກວດສອບຂໍ້ມູນໄອດີໃຫ້ຄົບຖ້ວນກ່ອນໂອນເງິນທຸກຄັ້ງ',
+  'ຮັບປະກັນຫຼັງການຂາຍ 7 ວັນ ຫາກໄອດີມີບັນຫາຈາກຜູ້ຂາຍ',
 ];
 
 function generateAccounts(game){
   if (ACCOUNTS_CACHE[game.id]) return ACCOUNTS_CACHE[game.id];
   const rnd = seededRandom(hashCode(game.id));
   const count = 6;
-  const badges = ['PREMIUM','RARE','STANDARD','PREMIUM','RARE','PREMIUM'];
+  const badges = ['ພຣີເມຍມ','ຫາຍາກ','ມາດຕະຖານ','ພຣີເມຍມ','ຫາຍາກ','ພຣີເມຍມ'];
   const list = [];
   for (let i = 1; i <= count; i++){
     const level = 30 + Math.floor(rnd() * 70);
@@ -79,18 +79,18 @@ function generateAccounts(game){
     list.push({
       id: `${game.id}-${String(i).padStart(3,'0')}`,
       gameId: game.id,
-      title: `Account #${String(i).padStart(3,'0')}`,
+      title: `ບັນຊີ #${String(i).padStart(3,'0')}`,
       badge: badges[(i - 1) % badges.length],
       price, level, skins, rareItems, stock,
-      description: ACC_DESC_TH(game.name),
+      description: ACC_DESC_LO(game.name),
       details: [
-        `Level ${level}`,
-        `${skins} Skins Unlocked`,
-        `${rareItems} Rare Items`,
-        'Bindable email — changeable after purchase',
-        'Full account access included',
+        `ເລເວວ ${level}`,
+        `ປົດລັອກສກິນ ${skins} ຊິ້ນ`,
+        `ໄອເທມຫາຍາກ ${rareItems} ຊິ້ນ`,
+        'ຜູກອີເມວໄດ້ — ປ່ຽນໄດ້ຫຼັງຈາກຊື້',
+        'ໄດ້ຮັບສິດເຂົ້າເຖິງບັນຊີເຕັມຮູບແບບ',
       ],
-      safety: ACC_SAFETY_TH,
+      safety: ACC_SAFETY_LO,
       images: generateImages(game.accent, 20),
     });
   }

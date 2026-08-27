@@ -22,19 +22,19 @@ function openAccountDetail(accountId){
   detailTitleEl.textContent = acc.title;
   detailGameEl.textContent = game.name;
   detailStats.innerHTML = `
-    <div class="detail-stat"><b>${acc.level}</b><span>Level</span></div>
-    <div class="detail-stat"><b>${acc.skins}</b><span>Skins</span></div>
-    <div class="detail-stat"><b>${acc.rareItems}</b><span>Rare Items</span></div>`;
+    <div class="detail-stat"><b>${acc.level}</b><span>ເລເວວ</span></div>
+    <div class="detail-stat"><b>${acc.skins}</b><span>ສກິນ</span></div>
+    <div class="detail-stat"><b>${acc.rareItems}</b><span>ໄອເທມຫາຍາກ</span></div>`;
   detailPriceEl.textContent = formatKip(acc.price);
-  detailStockEl.textContent = acc.stock ? 'IN STOCK' : 'SOLD OUT';
+  detailStockEl.textContent = acc.stock ? 'ມີສິນຄ້າ' : 'ຂາຍໝົດ';
   detailStockEl.className = 'detail-stock ' + (acc.stock ? 'in' : 'out');
   detailBuyBtn.disabled = !acc.stock;
-  detailBuyBtn.textContent = acc.stock ? 'BUY ACCOUNT' : 'OUT OF STOCK';
+  detailBuyBtn.textContent = acc.stock ? 'ຊື້ບັນຊີ' : 'ສິນຄ້າໝົດ';
 
   detailTabNav.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === 'info'));
   detailTabPanels.innerHTML = `
     <div class="tab-panel active" data-panel="info">
-      <ul><li>Game: ${game.name}</li><li>Level: ${acc.level}</li><li>Skins unlocked: ${acc.skins}</li><li>Rare items: ${acc.rareItems}</li></ul>
+      <ul><li>ເກມ: ${game.name}</li><li>ເລເວວ: ${acc.level}</li><li>ສກິນທີ່ປົດລັອກ: ${acc.skins}</li><li>ໄອເທມຫາຍາກ: ${acc.rareItems}</li></ul>
     </div>
     <div class="tab-panel" data-panel="desc"><p>${acc.description}</p></div>
     <div class="tab-panel" data-panel="details"><ul>${acc.details.map(d => `<li>${d}</li>`).join('')}</ul></div>
@@ -80,8 +80,8 @@ function initAccountDetailPage(){
   const accountId = params.get('id');
   const acc = accountId && findAccount(accountId);
   if (!acc){
-    detailTitleEl.textContent = 'Account not found';
-    detailTabPanels.innerHTML = '<div class="tab-panel active"><p>This account link looks invalid. <a href="index.html">Go back home</a>.</p></div>';
+    detailTitleEl.textContent = 'ບໍ່ພົບບັນຊີ';
+    detailTabPanels.innerHTML = '<div class="tab-panel active"><p>ລິ້ງບັນຊີນີ້ບໍ່ຖືກຕ້ອງ. <a href="index.html">ກັບໄປໜ້າຫຼັກ</a>.</p></div>';
     return;
   }
   openAccountDetail(accountId);

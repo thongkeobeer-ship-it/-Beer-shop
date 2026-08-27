@@ -23,7 +23,7 @@ function getFilteredAccounts(){
     case 'newest':    list = list.slice().reverse(); break;
     case 'rare':      list = list.filter(a => a.rareItems >= 8); break;
     case 'highlevel': list = list.filter(a => a.level >= 70); break;
-    case 'premium':   list = list.filter(a => a.badge === 'PREMIUM'); break;
+    case 'premium':   list = list.filter(a => a.badge === 'ພຣີເມຍມ'); break;
   }
   return list;
 }
@@ -31,7 +31,7 @@ function getFilteredAccounts(){
 function renderAccountGrid(){
   const list = getFilteredAccounts();
   if (!list.length){
-    accountGrid.innerHTML = '<div class="flow-empty">No accounts match this filter.</div>';
+    accountGrid.innerHTML = '<div class="flow-empty">ບໍ່ພົບບັນຊີທີ່ຕົງກັບການກັ່ນຕອງນີ້.</div>';
     return;
   }
   accountGrid.innerHTML = list.map((a, i) => `
@@ -39,18 +39,18 @@ function renderAccountGrid(){
       <div class="account-media">
         <img src="${a.images[0]}" alt="${a.title}" loading="lazy">
         <span class="account-media-badge">${a.badge}</span>
-        <span class="account-media-stock ${a.stock ? 'in' : 'out'}">${a.stock ? 'In Stock' : 'Sold Out'}</span>
+        <span class="account-media-stock ${a.stock ? 'in' : 'out'}">${a.stock ? 'ມີສິນຄ້າ' : 'ຂາຍໝົດ'}</span>
       </div>
       <div class="account-body">
         <div class="account-title">${a.title}</div>
         <div class="account-stats">
-          <span>Level ${a.level}</span>
-          <span>${a.skins} Skins</span>
-          <span>${a.rareItems} Rare</span>
+          <span>ເລເວວ ${a.level}</span>
+          <span>${a.skins} ສກິນ</span>
+          <span>${a.rareItems} ຫາຍາກ</span>
         </div>
         <div class="account-foot">
           <span class="account-price">${formatKip(a.price)}</span>
-          <span class="account-view">VIEW →</span>
+          <span class="account-view">ເບິ່ງ →</span>
         </div>
       </div>
     </a>`).join('');
@@ -75,9 +75,9 @@ accountsSearchInput.addEventListener('input', () => { currentSearch = accountsSe
   const backBtn = document.getElementById('accountsBackBtn');
 
   if (!game){
-    accountsTitleEl.textContent = 'Game not found';
+    accountsTitleEl.textContent = 'ບໍ່ພົບເກມ';
     accountsSubtitleEl.textContent = '';
-    accountGrid.innerHTML = '<div class="flow-empty">This game link looks invalid. <a href="index.html">Go back home</a>.</div>';
+    accountGrid.innerHTML = '<div class="flow-empty">ລິ້ງເກມນີ້ບໍ່ຖືກຕ້ອງ. <a href="index.html">ກັບໄປໜ້າຫຼັກ</a>.</div>';
     if (backBtn) backBtn.href = 'index.html#categories';
     return;
   }
@@ -86,7 +86,7 @@ accountsSearchInput.addEventListener('input', () => { currentSearch = accountsSe
   setFlowAccent(game.accent);
   accountsTitleEl.textContent = game.name;
   const total = generateAccounts(game).length;
-  accountsSubtitleEl.textContent = `${total} Accounts Available`;
+  accountsSubtitleEl.textContent = `ມີ ${total} ບັນຊີ`;
   accountsIconEl.innerHTML = iconSVG(game.icon);
   renderAccountGrid();
 })();
