@@ -1,49 +1,29 @@
 /* ---------------------------------------------------------------
-   SHARED FLOW STATE + SHELL CONTROLS
+   SHARED PAGE STATE + SHELL HELPERS
+   Used by games.html / accounts.html / account-detail.html.
+   These are now real, separate pages (not an overlay flow), so this
+   file only keeps the bits every page still needs in common.
    --------------------------------------------------------------- */
-const flowState = { category:null, accent:null, gameId:null, filter:'all', search:'', accountId:null, imgIndex:0 };
+const flowState = { imgIndex:0 };
 
-const flowScreen   = document.getElementById('flowScreen');
-const stepGames     = document.getElementById('stepGames');
-const stepAccounts  = document.getElementById('stepAccounts');
-const stepDetail    = document.getElementById('stepDetail');
-
-function iconSVG(pathData){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${pathData}</svg>`; }
+const flowPageEl = document.getElementById('flowPage');
 
 function setFlowAccent(hex){
-  flowScreen.style.setProperty('--flow-accent', hex);
+  if (flowPageEl) flowPageEl.style.setProperty('--flow-accent', hex);
 }
 
-function showFlowStep(stepEl){
-  [stepGames, stepAccounts, stepDetail].forEach(s => {
-    if (s === stepEl){
-      s.classList.add('active');
-      requestAnimationFrame(() => requestAnimationFrame(() => s.classList.add('step-in')));
-    } else if (s.classList.contains('active')) {
-      s.classList.remove('step-in');
-      setTimeout(() => { if (s !== stepEl) s.classList.remove('active'); }, 480);
-    }
-  });
-  stepEl.querySelector('.flow-body') && (stepEl.querySelector('.flow-body').scrollTop = stepEl.dataset.savedScroll ? +stepEl.dataset.savedScroll : stepEl.querySelector('.flow-body').scrollTop);
-}
-
+// account-detail.html still opens the image viewer / purchase confirm as
+// in-page dialogs (that's normal for a zoom viewer / confirm step, not a
+// full page) — these two helpers lock/unlock background scroll for them.
 function lockBody(){ document.body.classList.add('flow-lock'); }
 function unlockBodyIfClear(){
-  const anyOpen = flowScreen.classList.contains('open') || imageViewer.classList.contains('open') || purchaseConfirm.classList.contains('open');
-  if (!anyOpen) document.body.classList.remove('flow-lock');
-}
-
-document.querySelectorAll('.flow-close-btn').forEach(btn => btn.addEventListener('click', closeFlow));
-function closeFlow(){
-  flowScreen.classList.remove('open');
-  flowScreen.setAttribute('aria-hidden', 'true');
-  unlockBodyIfClear();
+  const viewerOpen  = typeof imageViewer !== 'undefined' && imageViewer.classList.contains('open');
+  const confirmOpen = typeof purchaseConfirm !== 'undefined' && purchaseConfirm.classList.contains('open');
+  if (!viewerOpen && !confirmOpen) document.body.classList.remove('flow-lock');
 }
 
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape') return;
-  if (purchaseConfirm.classList.contains('open')) return closePurchaseConfirm();
-  if (imageViewer.classList.contains('open')) return closeViewer();
-  if (flowScreen.classList.contains('open')) return closeFlow();
+  if (typeof purchaseConfirm !== 'undefined' && purchaseConfirm.classList.contains('open')) return closePurchaseConfirm();
+  if (typeof imageViewer !== 'undefined' && imageViewer.classList.contains('open')) return closeViewer();
 });
-

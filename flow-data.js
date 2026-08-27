@@ -26,11 +26,13 @@ const CATEGORY_GAMES = {
   best:  ['mlbb','freefire','genshin','pubgm'],
 };
 const CATEGORY_META = {
-  games:{ title:'GAME COLLECTION',       subtitle:'Choose a game to explore available accounts' },
-  gift:  { title:'GIFT-READY GAMES',      subtitle:'Choose a game to explore gift-ready accounts' },
-  topup: { title:'TOP-UP READY GAMES',    subtitle:'Choose a game to explore top-up ready accounts' },
-  best:  { title:'BEST SELLER GAMES',     subtitle:"Choose a game from this week's trending picks" },
+  games:{ title:'GAME COLLECTION',       subtitle:'Choose a game to explore available accounts', accent:'#7CC9FF', icon:'<rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 12h.01M6 15h2m6-3h.01M17 12h.01"/>' },
+  gift:  { title:'GIFT-READY GAMES',      subtitle:'Choose a game to explore gift-ready accounts', accent:'#B18CFF', icon:'<rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/>' },
+  topup: { title:'TOP-UP READY GAMES',    subtitle:'Choose a game to explore top-up ready accounts', accent:'#FFB25C', icon:'<path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/>' },
+  best:  { title:'BEST SELLER GAMES',     subtitle:"Choose a game from this week's trending picks", accent:'#FFC24B', icon:'<path d="M12 2c1.5 3 1 4.5-1 6.5C9 10.5 8 12 8 14a4 4 0 0 0 8 0c0-1.2-.5-2-1.2-2.8.9.4 2.2 1.6 2.2 3.8a5 5 0 0 1-10 0c0-3.5 2-5 3-8 .5-1.2.7-2.2 1-5Z"/>' },
 };
+
+function iconSVG(pathData){ return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${pathData}</svg>`; }
 
 function hashCode(str){ let h = 0; for (let i = 0; i < str.length; i++){ h = (h << 5) - h + str.charCodeAt(i); h |= 0; } return Math.abs(h) || 1; }
 function seededRandom(seed){ let s = seed % 2147483647; if (s <= 0) s += 2147483646; return function(){ s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }

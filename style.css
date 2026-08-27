@@ -888,6 +888,7 @@
   .game-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
   .game-card{
     position:relative; height:224px; overflow:hidden; border-radius:24px; cursor:pointer;
+    display:block;
     background:rgba(255,255,255,0.05); border:1px solid rgba(143,216,255,0.18);
     opacity:0; transform:translateY(18px);
     animation: flowCardIn .5s var(--ease) forwards;
@@ -915,6 +916,7 @@
   .account-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
   .account-card{
     position:relative; overflow:hidden; border-radius:22px; cursor:pointer;
+    display:block;
     background:rgba(255,255,255,0.05); border:1px solid rgba(143,216,255,0.16);
     opacity:0; transform:translateY(16px);
     animation: flowCardIn .45s var(--ease) forwards;
@@ -1085,6 +1087,24 @@
   .pc-confirm{ background: linear-gradient(135deg, var(--sky), #eaf8ff); color:var(--dark-1); box-shadow: 0 16px 32px -12px rgba(143,216,255,0.65); }
 
   /* ---------- purchase toast ---------- */
+  /* -------------------------------------------------------------
+     STANDALONE FLOW PAGES (games.html / accounts.html / account-detail.html)
+     Reuses .flow-header / .flow-body / .flow-step styling above, but
+     renders as a normal full page instead of the old fixed overlay.
+     ------------------------------------------------------------- */
+  .flow-page{
+    position:relative; min-height:100vh; min-height:100dvh;
+    display:flex; flex-direction:column;
+    background:#080e16; overflow-x:hidden;
+  }
+  .flow-page .flow-bg,
+  .flow-page .flow-orb{ position:fixed; }
+  .flow-page .flow-step{
+    position:relative; inset:auto; display:flex; flex:1 1 auto;
+    opacity:1; transform:none; filter:none; transition:none;
+  }
+  .flow-page .flow-body{ overflow-y:visible; -webkit-overflow-scrolling:auto; }
+
   .flow-toast{
     position:fixed; left:50%; bottom:28px; transform:translate(-50%, 20px); z-index:3100;
     display:flex; align-items:center; gap:10px; padding:14px 20px; border-radius:14px;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Choose a Game — NIMBUS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="flow-page" id="flowPage">
+  <div class="flow-bg"><div class="flow-grid"></div></div>
+  <div class="flow-orb flow-orb--1"></div>
+  <div class="flow-orb flow-orb--2"></div>
+
+  <section class="flow-step" id="stepGames" data-step="games">
+    <header class="flow-header">
+      <div class="flow-header-left">
+        <a class="flow-back" href="index.html#categories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="15" height="15"><path d="M15 6l-6 6 6 6"/></svg> Back</a>
+        <div class="flow-header-info">
+          <span class="flow-icon" id="gamesIcon"></span>
+          <div>
+            <h2 id="gamesTitle">GAME COLLECTION</h2>
+            <p id="gamesSubtitle">Choose a game to explore available accounts</p>
+          </div>
+        </div>
+      </div>
+      <div class="flow-header-right">
+        <button class="flow-icon-btn" id="gamesSearchToggle" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+        <a class="flow-icon-btn" href="index.html" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+      </div>
+    </header>
+    <div class="flow-search-wrap" id="gamesSearchWrap"><input type="text" id="gamesSearchInput" placeholder="Search game…"></div>
+    <div class="flow-body"><div class="game-grid" id="gameGrid"></div></div>
+  </section>
+</div>
+
+<script src="flow-data.js"></script>
+<script src="flow-shell.js"></script>
+<script src="games.js"></script>
+</body>
+</html>

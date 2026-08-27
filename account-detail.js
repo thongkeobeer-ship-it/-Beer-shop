@@ -41,7 +41,8 @@ function openAccountDetail(accountId){
     <div class="tab-panel" data-panel="safety"><ul>${acc.safety.map(s => `<li>${s}</li>`).join('')}</ul></div>`;
 
   initGallery(acc.images);
-  showFlowStep(stepDetail);
+  const backBtn = document.getElementById('detailBackBtn');
+  if (backBtn) backBtn.href = `accounts.html?game=${encodeURIComponent(acc.gameId)}`;
 }
 
 detailTabNav.addEventListener('click', (e) => {
@@ -51,8 +52,6 @@ detailTabNav.addEventListener('click', (e) => {
   btn.classList.add('active');
   detailTabPanels.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === btn.dataset.tab));
 });
-
-document.getElementById('detailBackBtn').addEventListener('click', () => showFlowStep(stepAccounts));
 
 detailBuyBtn.addEventListener('click', (e) => {
   if (detailBuyBtn.disabled) return;
@@ -71,5 +70,20 @@ function spawnRipple(btn, e){
   r.style.top = (e.clientY - rect.top - size / 2) + 'px';
   btn.appendChild(r);
   setTimeout(() => r.remove(), 600);
+}
+
+/* ---- page init: read ?id= from the URL and load that account.
+   Called from account-detail.html AFTER gallery.js/image-viewer.js/purchase.js
+   have loaded, since openAccountDetail() needs initGallery() to exist. ---- */
+function initAccountDetailPage(){
+  const params = new URLSearchParams(location.search);
+  const accountId = params.get('id');
+  const acc = accountId && findAccount(accountId);
+  if (!acc){
+    detailTitleEl.textContent = 'Account not found';
+    detailTabPanels.innerHTML = '<div class="tab-panel active"><p>This account link looks invalid. <a href="index.html">Go back home</a>.</p></div>';
+    return;
+  }
+  openAccountDetail(accountId);
 }
 
