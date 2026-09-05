@@ -56,7 +56,7 @@
     }, 120);
   }
 
-  document.querySelectorAll('.cat-card[data-cat]').forEach(card => {
+  document.querySelectorAll('.cat-row[data-cat]').forEach(card => {
     card.addEventListener('click', handleCatCardClick);
     card.addEventListener('keydown', (e) => {
       if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); handleCatCardClick(e.currentTarget ? e : { currentTarget: card }); }

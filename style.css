@@ -288,38 +288,30 @@
   .reveal{ opacity:0; transform:translateY(30px); filter:blur(8px); transition: opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease); }
   .reveal.in{ opacity:1; transform:translateY(0); filter:blur(0); }
 
-  /* ============ CATEGORY ============ */
-  .cat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-  .cat-card{
+  /* ============ CATEGORY (full-width rows) ============ */
+  .cat-list{ display:flex; flex-direction:column; gap:14px; }
+  .cat-row{
     position:relative; overflow:hidden;
-    padding:30px 20px; border-radius:20px; text-align:center;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:24px 28px; border-radius:18px;
     background:rgba(255,255,255,0.55);
     border:1px solid var(--border-glass);
     backdrop-filter:blur(10px);
     box-shadow: var(--shadow-soft);
-    transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
     cursor:pointer;
   }
-  .cat-card:hover{
-    transform: translateY(-10px) scale(1.03);
+  .cat-row span{ font-size:17px; font-weight:600; color:var(--text-primary); }
+  .cat-row svg{ width:20px; height:20px; color:#3f9fd6; transition: transform .3s var(--ease); flex-shrink:0; }
+  .cat-row:hover{
+    transform: translateX(6px);
     border-color: rgba(143,216,255,0.7);
     background: linear-gradient(160deg, rgba(255,255,255,0.85), rgba(191,234,255,0.55));
-    box-shadow: 0 30px 50px -18px rgba(111,195,240,0.5);
+    box-shadow: 0 20px 40px -18px rgba(111,195,240,0.5);
   }
-  .cat-card.cs-press{ transform: scale(0.96); transition: transform .12s ease; }
-  .cat-card.cs-charging{ border-color: var(--cs-card-accent, var(--sky)); box-shadow: 0 0 0 2px var(--cs-card-accent, var(--sky)), 0 30px 60px -18px var(--cs-card-accent, var(--sky)); }
-  .cat-icon{
-    width:50px; height:50px; margin:0 auto 16px; border-radius:14px;
-    display:flex; align-items:center; justify-content:center;
-    background: linear-gradient(155deg, rgba(255,255,255,0.85), rgba(143,216,255,0.35));
-    border:1px solid var(--border-glass);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 10px 22px -12px rgba(111,195,240,0.7);
-    transition: transform .4s var(--ease), background .4s var(--ease);
-  }
-  .cat-icon svg{ width:22px; height:22px; color:#3f9fd6; }
-  .cat-card:hover .cat-icon{ transform: rotate(-8deg) scale(1.15); background: linear-gradient(155deg, rgba(255,255,255,0.95), rgba(143,216,255,0.55)); }
-  .cat-card h3{ font-size:15px; font-weight:600; }
-  .cat-card span{ font-size:12.5px; color:var(--text-muted); }
+  .cat-row:hover svg{ transform: translateX(4px); }
+  .cat-row.cs-press{ transform: scale(0.98); transition: transform .12s ease; }
+  .cat-row.cs-charging{ border-color: var(--cs-card-accent, var(--sky)); box-shadow: 0 0 0 2px var(--cs-card-accent, var(--sky)), 0 30px 60px -18px var(--cs-card-accent, var(--sky)); }
 
   /* ============ CARD CLICK FX (press / glow / flash / shockwave / particles) ============ */
   .fx-burst{
@@ -782,13 +774,11 @@
     .hero p{ margin-left:auto; margin-right:auto; }
     .hero-actions{ justify-content:center; }
     .hero-visual{ height:420px; margin-top:20px; }
-    .cat-grid{ grid-template-columns:repeat(3,1fr); }
     .product-grid{ grid-template-columns:repeat(2,1fr); }
   }
   @media (max-width: 720px){
     .nav-links{ display:none; }
     .navbar{ padding:12px 16px; }
-    .cat-grid{ grid-template-columns:repeat(2,1fr); }
     .product-grid{ grid-template-columns:1fr 1fr; gap:14px; }
     .section{ padding:70px 5vw; }
     .hero{ padding-top:140px; padding-bottom:70px; }
