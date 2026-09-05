@@ -96,6 +96,34 @@
   }
   .nav-left{ display:flex; align-items:center; gap:38px; }
   .logo{ display:flex; align-items:center; gap:9px; font-family:'Noto Serif Lao',serif; font-weight:700; font-size:19px; letter-spacing:-0.01em; }
+  /* ============ BRAND NAME (BEER SHOP) ============ */
+  .brand-name{
+    display:inline-block;
+    font-family:'Poppins', 'Noto Serif Lao', sans-serif;
+    font-weight:800;
+    letter-spacing:0.03em;
+    background: linear-gradient(120deg, #bfeaff 0%, #6cc4f2 45%, #2f8fd6 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter: drop-shadow(0 0 10px rgba(143,216,255,0.65)) drop-shadow(0 0 22px rgba(111,196,242,0.4));
+  }
+  .logo .brand-name{
+    opacity:0; animation: brandFadeUp .6s var(--ease) forwards;
+  }
+  .hero h1 .brand-name{
+    opacity:0; animation: brandFadeUp .6s var(--ease) forwards;
+  }
+  @keyframes brandFadeUp{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .hero .eyebrow,
+  .hero p{
+    opacity:0; animation: heroFadeIn .5s var(--ease) .18s forwards;
+  }
+  @keyframes heroFadeIn{
+    from{ opacity:0; transform:translateY(8px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
   .logo-mark{
     width:30px; height:30px; border-radius:9px;
     background: linear-gradient(145deg, #ffffff, #BFEAFF 55%, #8FD8FF);
