@@ -18,7 +18,7 @@
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
+  html{ scroll-behavior:smooth; overflow-x:hidden; width:100%; }
   body{
     font-family:'Noto Sans Lao', sans-serif;
     background: var(--soft-white);
@@ -186,6 +186,7 @@
     position:relative; padding:170px 6vw 100px;
     display:grid; grid-template-columns:1.05fr 1fr; align-items:center; gap:40px;
     min-height:92vh;
+    overflow-x:hidden;
   }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
