@@ -1,4 +1,4 @@
-  // ============ CATEGORY CARDS → navigate straight to games.html ============
+  // ============ CATEGORY CARDS → click effect only (no page navigation) ============
   const CATEGORY_ACCENT = { games:'#7CC9FF', gift:'#B18CFF', topup:'#FFB25C', best:'#FFC24B' };
   let csBusy = false;
 
@@ -50,8 +50,10 @@
       card.classList.add('cs-charging');
       spawnBurst(cx, cy, accent);
 
+      // TODO: hook up new destination/behavior here once the new flow is built.
       setTimeout(() => {
-        location.href = `games.html?cat=${encodeURIComponent(catKey)}`;
+        card.classList.remove('cs-charging');
+        csBusy = false;
       }, 260);
     }, 120);
   }
