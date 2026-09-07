@@ -183,9 +183,8 @@
 
   /* ============ HERO ============ */
   .hero{
-    position:relative; padding:130px 6vw 60px;
+    position:relative; padding:130px 6vw 30px;
     display:grid; grid-template-columns:1fr; align-items:center; gap:22px;
-    min-height:70vh;
     overflow-x:hidden;
   }
   .eyebrow{
@@ -271,8 +270,8 @@
 
 
   /* ============ SECTION SHELL ============ */
-  .section{ padding:60px 6vw; position:relative; }
-  .section-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:28px; gap:16px; flex-wrap:wrap; }
+  .section{ padding:24px 6vw 60px; position:relative; }
+  .section-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:12px; gap:16px; flex-wrap:wrap; }
   .section-head h2{ font-size:clamp(30px,3.4vw,44px); font-weight:700; }
   .section-head p{ color:var(--text-secondary); margin-top:6px; max-width:480px; font-size:15px; }
   .view-all{ display:flex; align-items:center; gap:6px; font-weight:600; font-size:14.5px; color:var(--text-primary); padding-bottom:6px; border-bottom:1px solid var(--border-glass); transition:gap .25s; }
