@@ -228,15 +228,15 @@
   .reveal.in{ opacity:1; transform:translateY(0); filter:blur(0); }
 
   /* ============ CATEGORY (full-width banner rows) ============ */
-  /* Card ratio 8:5 (1.6:1) — matches the exact aspect ratio of the
-     supplied banner images (1400x875) so they display with zero
+  /* Card ratio 63:16 (~3.94:1) — matches the exact aspect ratio of the
+     supplied banner images (2016x512) so they display with zero
      cropping. Image fills the card 100% (label is baked into the
      image itself), 16px gap between cards, 22px corner radius, 2px border. */
   .cat-list{ display:flex; flex-direction:column; gap:16px; }
   .cat-row{
     position:relative; overflow:hidden;
     display:flex;
-    aspect-ratio: 8 / 5;
+    aspect-ratio: 63 / 16;
     width:100%;
     border-radius:22px;
     background:rgba(255,255,255,0.55);
