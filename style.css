@@ -98,27 +98,31 @@
   }
   .nav-left{ display:flex; align-items:center; gap:26px; }
   .logo{ display:flex; align-items:center; gap:9px; font-family:'Noto Sans Lao', sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.01em; }
-  /* ============ BRAND NAME (BEER SHOP) ============ */
+  /* ============ BRAND NAME (BEER SHOP) — cool display font + animated shine ============ */
   .brand-name{
     display:inline-block;
-    font-family:'Noto Sans Lao', sans-serif;
+    font-family:'Orbitron', sans-serif;
     font-weight:800;
-    letter-spacing:0.03em;
-    background: linear-gradient(120deg, #bfeaff 0%, #6cc4f2 45%, #2f8fd6 100%);
+    letter-spacing:0.04em;
+    background: linear-gradient(120deg, #bfeaff 0%, #6cc4f2 22%, #2f8fd6 40%, #eaf8ff 52%, #2f8fd6 64%, #6cc4f2 82%, #bfeaff 100%);
+    background-size:250% auto;
     -webkit-background-clip:text; background-clip:text; color:transparent;
     filter: drop-shadow(0 0 10px rgba(143,216,255,0.65)) drop-shadow(0 0 22px rgba(111,196,242,0.4));
   }
   .logo .brand-name{
-    opacity:0; animation: brandFadeUp .6s var(--ease) forwards;
+    opacity:0; animation: brandFadeUp .6s var(--ease) forwards, brandShine 4s linear infinite;
   }
   .hero h1 .brand-name{
-    opacity:0; animation: brandFadeUp .6s var(--ease) forwards;
+    opacity:0; animation: brandFadeUp .6s var(--ease) forwards, brandShine 4s linear infinite;
+  }
+  @keyframes brandShine{
+    0%{ background-position:0% center; }
+    100%{ background-position:-250% center; }
   }
   @keyframes brandFadeUp{
     from{ opacity:0; transform:translateY(18px); }
     to{ opacity:1; transform:translateY(0); }
   }
-  .hero .eyebrow,
   .hero p{
     opacity:0; animation: heroFadeIn .5s var(--ease) .18s forwards;
   }
@@ -127,7 +131,7 @@
     to{ opacity:1; transform:translateY(0); }
   }
   .logo-mark{
-    width:44px; height:44px;
+    width:60px; height:60px;
     object-fit:contain;
     display:block;
     flex-shrink:0;
