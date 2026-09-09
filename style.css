@@ -97,13 +97,14 @@
     backdrop-filter: blur(26px) saturate(180%);
   }
   .nav-left{ display:flex; align-items:center; gap:26px; }
-  .logo{ display:flex; align-items:center; gap:9px; font-family:'Noto Sans Lao', sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.01em; }
-  /* ============ BRAND NAME (BEER SHOP) — cool display font + animated shine ============ */
+  .logo{ display:flex; align-items:center; gap:9px; font-family:'Noto Sans Lao', sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.01em; flex-shrink:0; white-space:nowrap; }
+  /* ============ BRAND NAME (BEER SHOP) — elegant display font + animated shine ============ */
   .brand-name{
     display:inline-block;
-    font-family:'Orbitron', sans-serif;
+    white-space:nowrap;
+    font-family:'Cinzel', serif;
     font-weight:800;
-    letter-spacing:0.04em;
+    letter-spacing:0.07em;
     background: linear-gradient(120deg, #bfeaff 0%, #6cc4f2 22%, #2f8fd6 40%, #eaf8ff 52%, #2f8fd6 64%, #6cc4f2 82%, #bfeaff 100%);
     background-size:250% auto;
     -webkit-background-clip:text; background-clip:text; color:transparent;
