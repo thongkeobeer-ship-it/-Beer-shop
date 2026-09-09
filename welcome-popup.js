@@ -1,13 +1,11 @@
 (function initWelcomePopup(){
-  const HIDE_FOREVER_KEY = 'bjBeerShop_hidePopupForever';
-  const HIDE_UNTIL_KEY   = 'bjBeerShop_hidePopupUntil';
+  const HIDE_UNTIL_KEY = 'bjBeerShop_hidePopupUntil';
 
   const overlay = document.getElementById('wpOverlay');
   if (!overlay) return;
 
   function shouldShow(){
     try{
-      if (localStorage.getItem(HIDE_FOREVER_KEY) === 'true') return false;
       const until = Number(localStorage.getItem(HIDE_UNTIL_KEY) || 0);
       if (until && Date.now() < until) return false;
       return true;
@@ -26,10 +24,10 @@
     document.body.style.overflow = '';
   }
 
-  // Only wpNoMore and wp1hr exist in the markup.
+  // "ບໍ່ຕ້ອງສະແດງອີກ" now means: don't show again for 24 hours (not forever).
   document.getElementById('wpNoMore')?.addEventListener('click', (e) => {
     e.stopPropagation();
-    try{ localStorage.setItem(HIDE_FOREVER_KEY, 'true'); }catch(err){}
+    try{ localStorage.setItem(HIDE_UNTIL_KEY, String(Date.now() + 24*60*60*1000)); }catch(err){}
     hidePopup();
   });
 
