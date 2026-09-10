@@ -289,6 +289,19 @@
      cropping. Image fills the card 100% (label is baked into the
      image itself), 16px gap between cards, 22px corner radius, 2px border. */
   .cat-list{ display:flex; flex-direction:column; gap:10px; }
+
+  /* ============ CATEGORY GROUPS (multiple headed sub-sections) ============ */
+  .cat-group{ margin-bottom:18px; }
+  .cat-group:last-child{ margin-bottom:0; }
+  .cat-group-head{ margin-bottom:8px; }
+  .cat-group-head h3{
+    font-size:clamp(14px, 4.6vw, 22px);
+    font-weight:700;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    letter-spacing:-0.01em;
+  }
   .cat-row{
     position:relative; overflow:hidden;
     display:flex;
